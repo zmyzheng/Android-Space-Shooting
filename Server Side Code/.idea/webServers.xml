@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ssh://ubuntu@54.236.38.109:22/home/ubuntu/anaconda2/bin/python" name="ssh://ubuntu@54.236.38.109:22/home/ubuntu/anaconda2/bin/python">
+        <fileTransfer host="54.236.38.109" port="22" privateKey="C:\Users\Huafeng\PycharmProjects\untitled\MyIot.pem" rootFolder="/home/ubuntu" accessType="SFTP" keyPair="true">
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
