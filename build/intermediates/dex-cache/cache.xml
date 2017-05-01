@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/lingqing/Desktop/shooting/shoot_plane/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c3769dbbdb9b8d7b096ee14a95611a27398e15e0">
+        <dex dex="/Users/lingqing/Desktop/shooting/shoot_plane/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a29c1936b5bc4ff4c09f1ce3e2b5a9c73bc678b0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingqing/Desktop/shooting/shoot_plane/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/Users/lingqing/Desktop/shooting/shoot_plane/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_e915a79f4566a8962fc654d26f5c2fa920bfa9bc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingqing/.android/build-cache/bb09542599fd6db427ae72144532cb69d08322c1/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/lingqing/Desktop/shooting/shoot_plane/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_308b0cd6c7b3350b851eabd3a2b14bf465716333/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/lingqing/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/lingqing/Desktop/shooting/shoot_plane/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_713e177428f42e320d2f47ed309bde019046cabd/classes.dex" />
+    </item>
+
+</items>
