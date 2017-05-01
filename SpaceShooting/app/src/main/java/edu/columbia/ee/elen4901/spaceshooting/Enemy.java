@@ -64,6 +64,8 @@ public class Enemy {
         enemyBullets = new Bullet[BULLET_NUM];
         for (int i =0; i< BULLET_NUM;i++) {
             enemyBullets[i] = new Bullet(context,bulletFrameBitmaps);
+            enemyBullets[i].BULLET_STEP_Y = UtilRandom(5, 15);
+            enemyBullets[i].BULLET_STEP_X = UtilRandom(-3, 5);
         }
     }
 

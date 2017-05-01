@@ -32,7 +32,7 @@ public class Aircraft {
     /**BULLET_UP_OFFSET**/
     final static int BULLET_UP_OFFSET = 40;
     /**BULLET_LEFT_OFFSET**/
-    final static int BULLET_LEFT_OFFSET = 0;
+    final static int BULLET_LEFT_OFFSET = -59;
     /**bulletCount**/
     public int bulletCount = 0;
     /**lastBulletSendTime**/

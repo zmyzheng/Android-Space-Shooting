@@ -11,9 +11,9 @@ import android.graphics.Paint;
 
 public class Bullet {
     /**BULLET_STEP_X**/
-    static final int BULLET_STEP_X = 3;
+    int BULLET_STEP_X = 0;
     /**BULLET_STEP_Y**/
-    static final int BULLET_STEP_Y = 15;
+    int BULLET_STEP_Y = 15;
     /**BULLET_WIDTH**/
     static final int BULLET_WIDTH = 40;
     /** position of bullet **/
@@ -46,7 +46,11 @@ public class Bullet {
     public void UpdateBullet(int direction) {
         if (isVisible) {
             bulletY -= direction * BULLET_STEP_Y;
+            bulletX -= BULLET_STEP_X;
             if (bulletY < 0 || bulletY > 1920) {
+                isVisible = false;
+            }
+            if (bulletX < 0 || bulletX > 1080) {
                 isVisible = false;
             }
         }

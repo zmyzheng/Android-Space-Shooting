@@ -146,9 +146,6 @@ public class GameActivity extends AppCompatActivity {
         private int screenHeight = 0;
         private int backgroundHeight = 0;
 
-
-
-
         Paint paint = null;
 
         /**background picture change to look like scroll**/
@@ -162,10 +159,6 @@ public class GameActivity extends AppCompatActivity {
 
         final static int AIRCRAFT_ALIVE_FRAME_NUM = 6;
         final static int AIRCRAFT_DEAD_FRAME_NUM = 6;
-
-
-
-
 
         /**ENEMY_NUM**/
         final static int ENEMY_NUM = 5 ;
@@ -188,20 +181,13 @@ public class GameActivity extends AppCompatActivity {
 
         private Context context = null;
 
-
-
-
         Aircraft aircraft = null;
         /**enemy class**/
         Enemy[] enemies = null;
 
-//
-//
         /**touch position**/
-        public int touchPosX = 0;
-        public int touchPosY = 0;
-
-
+        public int touchPosX = 600;
+        public int touchPosY = 900;
 
         /**
          * constructor
@@ -243,6 +229,7 @@ public class GameActivity extends AppCompatActivity {
             for(int i =0; i< ENEMY_NUM; i++) {
                 enemies[i] = new Enemy(context,aliveEnemyFrameBitmaps,deadEnemyFrameBitmaps);
                 enemies[i].init(i * ENEMY_POS_OFFSET, 0);
+
             }
             Bitmap[] aliveAircraftFrameBitmaps = new Bitmap[AIRCRAFT_ALIVE_FRAME_NUM];
             for(int i =0; i< AIRCRAFT_ALIVE_FRAME_NUM; i++) {
@@ -359,8 +346,8 @@ public class GameActivity extends AppCompatActivity {
 
                 }
                 for (int j = 0; j < enemies[i].BULLET_NUM; j++) {
-                    if ((aircraft.aircraftX >= enemies[i].enemyBullets[j].bulletX - 20) && (aircraft.aircraftX <= enemies[i].enemyBullets[j].bulletX + 20)
-                            && (aircraft.aircraftY >= enemies[i].enemyBullets[j].bulletY - 20) && (aircraft.aircraftY <= enemies[i].enemyBullets[j].bulletY + 20)
+                    if ((aircraft.aircraftX >= enemies[i].enemyBullets[j].bulletX - 120) && (aircraft.aircraftX <= enemies[i].enemyBullets[j].bulletX + 0)
+                            && (aircraft.aircraftY >= enemies[i].enemyBullets[j].bulletY - 15) && (aircraft.aircraftY <= enemies[i].enemyBullets[j].bulletY + 15)
 
                             ) {
                         enemies[i].enemyBullets[j].isVisible = false;
@@ -377,8 +364,8 @@ public class GameActivity extends AppCompatActivity {
             // renew position
             if (gameState == GAME_RUNNING) {
 
-                touchPosX = x;
-                touchPosY = y;
+                touchPosX = x - 77;
+                touchPosY = y - 400;
             }
 
         }
