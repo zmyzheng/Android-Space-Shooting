@@ -36,41 +36,54 @@ Our system consists of five major modules: Login (MainActivity), Sign Up (regist
 ## Detailed Description
 ### Subseciton A. Space Shooting Game
 1. Design Overview
+
 We use the procedural way to design our App, which means writing Java code to create and manipulate all the user interface objects. The reason we chose this way is that the View is changing all the time, which is easier to manipulate using code that xml files. The View is realized by Class GameView using canvas, which draw 40 times per second to make to picture look like animation.
 
 The logic of the game is: After the game begins, user’s aircraft continues shooting towards enemies, and enemies shoot towards user’s aircraft every 3 seconds. The enemies will explore if colliding with user’s bullet. Similarly, if user’s aircraft collides with any enemy or enemy’s bullet, the game is over. Then the score will be shown on the screen to indicate how many enemies has the user eliminated.
 
 2. Classes Overview
+
 (1) Class Bullet: 
+
 This class includes the attributes and methods a bullet has. In the game both the enemies and out aircraft can shoot, but their bullets features are different, which is described in their own Bullet Class.
 The Bullet Class mainly records the coordinate and moving step of the bullet, and its animation when moving forward. If the bullet  collides with an enemy or is out of boundary of screen, it should not be seen any more, so we use a boolean variable “isVisible” to record its state. Every time before the canvas refresh the animation, the coordinate is updated using the method UpdateBullet(). The DrawBullet() method is responsible for drawing the bullet in the right position after updating.
 
 (2) Class Animation
+
 As the name indicates, the Class Animation controls the animation of bullet, user’s  aircraft, and enemies. It not only records how many frames an animation has and their responding bitmaps, but also the animation play states, such as interval, play time, loop, finish state. The method DrawAnimation (Canvas canvas, Paint paint, int x, int y) realizes draw the animation in order.
 
 (3) Class Aircraft and Class Enemy
+
 The class Aircraft and Class Enemy are similar, representing the behavior of the user and enemy respectively. The attributes of the classes include the coordinate of the aircraft/enemy, character of shooting (shooting interval, bullet number, bullet offset, bullet array) and their living state (isAlive or not). They have three methods: init() to initialize the position and state; UpdateAircraft (int touchPosX, int touchPosY) to change the position of aircraft when touching; DrawAircraft (Canvas canvas, Paint paint) to draw it on the canvas.
 
 (4) GameActivity
+
 The GameActiviy controls all the operations and states in the game. As mentioned above, we use the procedural way to design our App, so we create an inner class GameView to be responsible for the UI. The GameView class starts a new thread to refresh the animation every 25 ms. After initializing, it first check the state flag “isThreadRunning”. If the thread is running, it updates all the instances’ state before drawing them on the canvas. If user’s aircraft is dead, the thread will stop, and draws the score on the screen.
 
 3. Detail Realization
+
 (1) Background Scroll
+
 The background picture has been scrolling back to the player, making an illusion of their own control of the aircraft in the forward flight. In our game, two map images in the screen behind the alternate rolling, this will give players a forward move illusion.
 
 (2) Animation Refresh
+
 The animation refresh is realized in a standalone thread, which sleep 25 ms in every loop. In every loop, the state(alive/ dead), position(coordinate), corresponding bitmaps are prepared and updated, then they are drawn on the canvas.
 
 (3) Aircraft Moving
+
 After touching the screen at any point, the program can get the current point of the X, Y coordinates. Calculate the distance between the current X, Y coordinate points and the target X, Y points centered on the X Y coordinates of the current aircraft. Because the aircraft can not directly fly to the target point from the current coordinates, so we add the current coordinates of X, Y  to one step every loop. Here we need to consider when the aircraft is moving but the user stops to touch the screen. if you stop touching the plane will stop in place rather than move to the target point until the player touches the new screen X, Y coordinates.
 
 (4) Collision
+
 As the number of bullets is quite a lot, each bullet needs to use an object to record the current bullet X, Y coordinates and drawing in the screen area, each plane is also an object recording its X, Y coordinates with the drawing area in the screen. In this way, dealing with the collision is actually the collision of a rectangular area of each bullet with each enemy's rectangular area. By traversing the bullet object and the enemy object we can calculate the result of the collision, and change the state of the aircraft.
 
 (5) Memory Leaks Preventing
+
 If in accordance with the above idea directly, we will  create bullet objects and enemy objects frequently, which will cause serious problems such as memory leaks. As the number of bullets that need to be drawn on the screen and the number of enemy planes is certainly limited, we can initialize the fixed bullet object and the enemy object only to update these objects and their logic. For example, in the current game screen I need 5 aircraft, the code I will only allocate five enemy objects, respectively, to detect if the bullet hit these objects or the bitmap goes down the bottom of the screen. If so, we can reset the property, so that the aircraft reappeared in the top of the battlefield. In this way, the player will feel endless enemies, but we don’t have to create new objects every time.
 
 (6) Game Music
+
 To make the game more enjoyable, we add background music and special effects music. The special effect music is triggered when an enemy is eleminated.
 
 ### Subseciton B.  Sever’s Functions: Detailed Description
@@ -105,7 +118,7 @@ For the whole system, the history information also includes two types: recent ac
             
 A. Recent Activity
 
-	We record the most recent several shooting game’s in a list style. This information give a direct implication of the system’s current states. Usually, active players check this information a lot during his play.
+We record the most recent several shooting game’s in a list style. This information give a direct implication of the system’s current states. Usually, active players check this information a lot during his play.
 
 B. History Statistics
 
